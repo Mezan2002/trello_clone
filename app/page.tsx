@@ -11,7 +11,6 @@ export default function Home() {
       {/* board start */}
       <Board />
       {/* board end */}
-      <h1>Hello Trello</h1>
     </main>
   );
 }

@@ -1,9 +1,16 @@
+"use client";
+
+import { useBoardStore } from "@/store/BoardStore";
+import { useEffect } from "react";
+
 const Board = () => {
-  return (
-    <div>
-      <h1>Board</h1>
-    </div>
-  );
+  const getBoard = useBoardStore((state) => state.getBoard);
+
+  useEffect(() => {
+    getBoard();
+  }, [getBoard]);
+
+  return <h1>Hello</h1>;
 };
 
 export default Board;
