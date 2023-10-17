@@ -1,7 +1,13 @@
+"use client";
+import { useBoardStore } from "@/store/BoardStore";
 import { MagnifyingGlassIcon, UserCircleIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 
 const Header = () => {
+  const [searchString, setSearchString] = useBoardStore((state) => [
+    state.searchString,
+    state.setSearchString,
+  ]);
   return (
     <header className="">
       <div className="flex flex-col md:flex-row bg-gray-500/10 shadow rounded-b-2xl items-center justify-between w-full py-2 px-5">
@@ -23,6 +29,8 @@ const Header = () => {
             <MagnifyingGlassIcon className="h-6 w-6 text-gray-400 -mr-5" />
             <input
               type="text"
+              value={searchString}
+              onChange={(e) => setSearchString(e.target.value)}
               placeholder="Search"
               className="flex-1 outline-none p-2 ml-0"
             />
